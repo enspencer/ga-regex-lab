@@ -1,26 +1,38 @@
 require_relative 'source'
 require 'pry'
 
-def valid_ip_addresses 
+# this works!
+def valid_ip_addresses(source_text)
+	$source_text.scan(/\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)
 end 
 
-def valid_mit_ip_addresses 
+# this works!
+def valid_mit_ip_addresses(source_text)
+	$source_text.scan(/18.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)
 end
 
-def non_mit_ip_addresses 
+# this works!
+def non_mit_ip_addresses(source_text)
+	$source_text.scan(/\b(?!18)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/)
 end 
 
-def valid_phone_numbers 
+def valid_phone_numbers(source_text)
+	$source_text.scan(/\(?[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}/)
 end
 
-def area_codes 
+def area_codes(source_text)
+	$source_text.scan(/(\d{3})-\d/)
 end
 
-def email_addresses 
+def email_addresses(source_text)
+	$source_text.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/)
 end
 
-def zip_codes 
+def zip_codes(source_text)
+	$source_text.scans(/\d{5}(-?\d{4}?)/)
 end
 
-def hex_colors 
+# this works!
+def hex_colors(source_text)
+	$source_text.scan(/(?<=#)(?<!^)\h{6}/)
 end
