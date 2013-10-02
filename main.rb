@@ -25,11 +25,12 @@ def area_codes(source_text)
 end
 
 def email_addresses(source_text)
-	$source_text.scan(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/)
+	$source_text.scan(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/)
 end
 
+#this works!
 def zip_codes(source_text)
-	$source_text.scans(/\d{5}(-?\d{4}?)/)
+	$source_text.scan(/\b(\d{5})\b/).flatten
 end
 
 # this works!
