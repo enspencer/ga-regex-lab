@@ -17,18 +17,19 @@ def non_mit_ip_addresses(source_text)
 end 
 
 def valid_phone_numbers(source_text)
-	$source_text.scan(/\(?[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}/)
+	array = $source_text.scan(/((\(?[2-9][0-8][0-9]\)?[- ]?)?[2-9][0-9]{2}[- ]?[0-9]{4})/).uniq
 end
 
 def area_codes(source_text)
-	$source_text.scan(/(\d{3})-\d/)
+	$source_text.scan(/(\b(\d{3}))-\d{3}-\d{4}/).flatten.uniq
 end
 
+# this works!
 def email_addresses(source_text)
-	$source_text.scan(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/)
+	$source_text.scan(/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]{2,4}/)
 end
 
-#this works!
+# this works!
 def zip_codes(source_text)
 	$source_text.scan(/\b(\d{5})\b/).flatten
 end
