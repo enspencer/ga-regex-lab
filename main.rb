@@ -17,9 +17,10 @@ def non_mit_ip_addresses(source_text)
 end 
 
 def valid_phone_numbers(source_text)
-	array = $source_text.scan(/((\(?[2-9][0-8][0-9]\)?[- ]?)?[2-9][0-9]{2}[- ]?[0-9]{4})/).uniq
+	array = $source_text.scan(/(\(?[2-9][0-8][0-9]\)?[- ]??[2-9][0-9]{2}[- ]?[0-9]{4})|([2-9][0-9]{2}[- ]?[0-9]{4})/).flatten.uniq.compact
 end
 
+# this works!
 def area_codes(source_text)
 	$source_text.scan(/([2-9][0-8][0-9])-\d/).flatten.uniq
 end
