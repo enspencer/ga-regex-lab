@@ -21,7 +21,7 @@ def valid_phone_numbers(source_text)
 end
 
 def area_codes(source_text)
-	$source_text.scan(/(\b(\d{3}))-\d{3}-\d{4}/).flatten.uniq
+	$source_text.scan(/([2-9][0-8][0-9])-\d/).flatten.uniq
 end
 
 # this works!
